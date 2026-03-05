@@ -2,7 +2,7 @@ import numpy as np
 def linear_function(x, a, b):
     return a * x + b
 def quadratic_function(x, a, b, c):
-    return a * x**2 + b * x + c
+    return a * (x**2) + b * x + c
 def sine_function(x):
     return np.sin(x)
 def exponential_function(x, a):
