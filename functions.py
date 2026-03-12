@@ -8,6 +8,5 @@ def sine_function(x):
 def exponential_function(x, a):
     return np.exp(a * x)
 def logarithmic_function(x, a):
-    if x <= 0:
-        return float('nan')
-    return np.log(a * x)
+    return np.log(np.where(a * x > 0, a * x, np.nan))
+
