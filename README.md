@@ -6,3 +6,6 @@ jak ho spustit
 jaké funkce vykresluje
     lineární, kvadratická, sinusová, exponenciální a logaritická 
 a hledá jejich minima a maxima
+experiment
+    snížení koeficientu způsobuje pomalejší růst funkce
+    funkce se také posunula po ose y nahoru

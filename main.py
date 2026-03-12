@@ -18,8 +18,7 @@ def save_graf(x, y, name, soubor, color):
     plt.figure(figsize=(8, 5))
     plt.plot(x, y, label=name, color=color, linewidth=2)
     
-    # --- POKROČILÁ ČÁST (Bod 7, Možnost C): Minimum a Maximum ---
-    # Odfiltrujeme NaN hodnoty pro výpočet extrémů (důležité pro logaritmus)
+    # Minimum a Maximum 
     mask = ~np.isnan(y)
     if np.any(mask):
         y_clean = y[mask]
@@ -31,7 +30,7 @@ def save_graf(x, y, name, soubor, color):
         y_min = np.min(y_clean)
         x_min = x_clean[np.argmin(y_clean)]
 
-        # Vyznačení do grafu (pouze pokud jsou v rozumném rozsahu)
+        # Vyznačení do grafu 
         if y_max < 1000 and y_max > -1000:
             plt.scatter(x_max, y_max, color='black', zorder=5)
             plt.annotate(f'Max: {y_max:.2f}', (x_max, y_max), textcoords="offset points", xytext=(0,10), ha='center')
@@ -70,4 +69,18 @@ plt.ylabel("f(x)")
 plt.ylim(-20, 100)
 plt.legend()
 plt.savefig("images/multiple_functions.png")
+plt.close()
+
+# Experiment: Kvadratická funkce s jiným intervalem a parametry
+x_exp = np.linspace(-20, 20, 1000) # Změna intervalu na -20 až 20
+y_exp = quadratic_function(x_exp, 0.2, 0, 5) # Malé 'a' (0.2) zajistí plochý tvar
+
+plt.figure(figsize=(8, 5))
+plt.plot(x_exp, y_exp, label="Experiment (0.2x² + 5)", color="black", linestyle="--")
+plt.title("Experiment: Změna parametrů a intervalu")
+plt.xlabel("osa x (rozšířený rozsah)")
+plt.ylabel("f(x)")
+plt.grid(True)
+plt.legend()
+plt.savefig("images/experiment.png")
 plt.close()
